@@ -14,6 +14,7 @@
 - **Context pages:** Outlook and Spotify pages appear automatically when those apps are in front.
 - **Focus timer:** one-button 25-minute blocks.
 - **Home Assistant:** optional light, scene and lock buttons with confirmations.
+- **Built-in editor:** gear menu → Edit keys. Change any button's label, icon (auto, upload or built-in) and action.
 - **Export / Import:** save your whole setup (layout, icons, templates) to one file and load it on any PC.
 
 ## Install
