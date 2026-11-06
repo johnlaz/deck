@@ -1,40 +1,77 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>LazDeck — on-screen deck for Windows</title>
+<title>Deck — a Stream Deck for your Windows screen</title>
+<meta name="description" content="Deck puts a 15-button control pad on your Windows desktop. Launch apps, fire hotkeys, paste templates, run timers. One small exe, runs locally, free.">
+<link rel="icon" href="assets/img/favicon.ico"><link rel="apple-touch-icon" href="assets/img/icon-192.png">
+<meta name="theme-color" content="#0b0f14">
 <style>
-:root{color-scheme:dark}
-body{margin:0;background:#0b0f14;color:#e6edf3;font:16px/1.55 system-ui,Segoe UI,sans-serif}
-main{max-width:720px;margin:0 auto;padding:56px 22px}
-h1{font-size:2.2rem;margin:0 0 6px}h2{margin-top:36px;font-size:1.15rem;color:#38c6f4}
-p.sub{color:#9fb0c0;margin-top:0}
-.btn{display:inline-block;background:#38c6f4;color:#041016;font-weight:700;padding:13px 22px;border-radius:10px;text-decoration:none;margin:18px 10px 6px 0}
-.btn.alt{background:#1a2430;color:#e6edf3}
-.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;max-width:360px;margin:26px 0}
-.grid i{aspect-ratio:1;background:#16202b;border:1px solid #243242;border-radius:10px}
-code{background:#16202b;padding:2px 6px;border-radius:5px}
-li{margin:6px 0}footer{margin-top:48px;color:#6b7c8c;font-size:.85rem}
-</style></head><body><main>
-<h1>LazDeck</h1>
-<p class="sub">A Stream Deck-style button widget for your Windows desktop. One small exe, no installer, no account.</p>
-<div class="grid"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-<a class="btn" href="https://github.com/johnlaz/lazdeck/releases/latest/download/LazDeck.exe">Download LazDeck.exe</a>
-<a class="btn alt" href="https://github.com/johnlaz/lazdeck/releases/latest">All files</a>
-<h2>Install</h2>
-<ol>
-<li>Download <code>LazDeck.exe</code> and put it anywhere (for example <code>Documents\LazDeck</code>).</li>
-<li>Double-click it. A tray icon appears and the deck opens in its own window.</li>
-<li>Optional: tray menu &rarr; <b>Start with Windows</b>.</li>
-</ol>
-<p>Windows may show a SmartScreen notice for an unsigned app: choose <b>More info &rarr; Run anyway</b>.</p>
-<h2>What it does</h2>
-<ul>
-<li>15-button pages: launch apps and sites, send hotkeys, paste text templates, run timers, mic mute.</li>
-<li>Outlook and Spotify pages appear automatically when those apps are in front.</li>
-<li>Optional Home Assistant buttons.</li>
-</ul>
-<h2>Back up or move your setup</h2>
-<p>Open the gear button in the dashboard: <b>Export settings</b> saves your layout, custom icons and templates to one <code>lazdeck-settings.json</code>. <b>Import settings</b> loads it on any PC (current files are backed up first).</p>
-<h2>Install as an app (optional)</h2>
-<p>The dashboard runs at <code>http://127.0.0.1:8788</code>. In Edge, use <b>&middot;&middot;&middot; &rarr; Apps &rarr; Install this site as an app</b> if you want a taskbar-pinnable window.</p>
-<footer>LAZLAB Creations &middot; Windows 10/11 &middot; Runs locally, nothing leaves your PC.</footer>
-</main></body></html>
+:root{--bg:#0b0f14;--s:#111821;--s2:#16202b;--b:#243242;--t:#e6edf3;--m:#9fb0c0;--a:#00ff66;--a2:#38c6f4}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(1000px 500px at 80% -10%,rgba(0,255,102,.10),transparent),var(--bg);color:var(--t);font:16px/1.6 system-ui,'Segoe UI',sans-serif}
+a{color:inherit}
+header{position:sticky;top:0;z-index:5;backdrop-filter:blur(10px);background:rgba(11,15,20,.8);border-bottom:1px solid var(--b)}
+.nav{max-width:1080px;margin:0 auto;padding:12px 22px;display:flex;align-items:center;gap:22px}
+.nav b{display:flex;align-items:center;gap:10px;font-size:1.1rem}.nav b img{width:30px;height:30px}
+.nav a.l{color:var(--m);text-decoration:none;font-size:.93rem}.nav a.l:hover{color:var(--t)}.sp{flex:1}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--a);color:#03130a;font-weight:800;padding:15px 28px;border-radius:14px;text-decoration:none;box-shadow:0 10px 30px rgba(0,255,102,.22);transition:transform .18s,box-shadow .18s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 38px rgba(0,255,102,.32)}
+.btn.sm{padding:9px 16px;font-size:.9rem;border-radius:10px;box-shadow:none}
+.btn.ghost{background:var(--s2);color:var(--t);border:1px solid var(--b);box-shadow:none}
+section{max-width:1080px;margin:0 auto;padding:72px 22px}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding-top:64px}
+.eyebrow{color:var(--a);font-weight:700;letter-spacing:.08em;font-size:.8rem;text-transform:uppercase}
+h1{font-size:clamp(2.3rem,5vw,3.6rem);line-height:1.08;margin:12px 0 16px;letter-spacing:-.02em}
+h1 em{font-style:normal;color:var(--a)}
+.lead{color:var(--m);font-size:1.15rem;max-width:34em}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0 14px}
+.trust{display:flex;flex-wrap:wrap;gap:8px 20px;color:var(--m);font-size:.88rem}.trust span:before{content:"✓ ";color:var(--a)}
+.pad{background:linear-gradient(180deg,#1b2430,#10161e);border:1px solid var(--b);border-radius:26px;padding:16px;box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 60px rgba(0,255,102,.08)}
+.pad .g{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.pad img{width:100%;border-radius:12px;display:block}
+h2{font-size:clamp(1.6rem,3vw,2.2rem);margin:0 0 10px;letter-spacing:-.01em}.sub{color:var(--m);max-width:38em;margin:0 0 34px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--s);border:1px solid var(--b);border-radius:18px;padding:24px}.card h3{margin:0 0 6px;font-size:1.05rem}.card p{margin:0;color:var(--m);font-size:.95rem}
+.card .i{font-size:1.5rem;margin-bottom:10px}
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step{background:var(--s);border:1px solid var(--b);border-radius:18px;padding:24px}.step:before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--a);color:#03130a;font-weight:800;margin-bottom:12px}
+.step h3{margin:0 0 6px}.step p{margin:0;color:var(--m);font-size:.95rem}
+code{background:var(--s2);border:1px solid var(--b);padding:1px 7px;border-radius:6px;font-size:.9em}
+.cta{text-align:center;background:linear-gradient(180deg,var(--s),#0e141b);border:1px solid var(--b);border-radius:26px;padding:56px 22px}
+.cta p{color:var(--m);margin:0 auto 26px;max-width:32em}
+.note{color:var(--m);font-size:.85rem;margin-top:16px}
+footer{border-top:1px solid var(--b);color:var(--m);text-align:center;padding:30px 22px;font-size:.88rem}
+@media(max-width:820px){.hero{grid-template-columns:1fr}.cards,.steps{grid-template-columns:1fr}.nav a.l{display:none}section{padding:48px 20px}}
+</style></head><body>
+<header><div class="nav"><b><img src="assets/img/icon-192.png" alt="">Deck</b><span class="sp"></span>
+<a class="l" href="#features">Features</a><a class="l" href="#setup">Setup</a><a class="btn sm" href="assets/Deck.zip" download>Download</a></div></header>
+
+<section class="hero"><div>
+<div class="eyebrow">v0.3 · Windows · fully local</div>
+<h1>A Stream Deck for <em>your screen.</em></h1>
+<p class="lead">Deck puts a 15-button control pad on your Windows desktop. Launch apps, fire hotkeys, paste your email templates and start timers, in one click. No hardware, no account, no installer.</p>
+<div class="actions"><a class="btn" href="assets/Deck.zip" download>⬇ Download for Windows</a><a class="btn ghost" href="#features">See what it does</a></div>
+<div class="trust"><span>Free</span><span>Single small exe</span><span>Nothing leaves your PC</span></div></div>
+<div class="pad" aria-hidden="true"><div class="g"><img src="assets/img/k01.png" alt="" loading="lazy"><img src="assets/img/k02.png" alt="" loading="lazy"><img src="assets/img/k03.png" alt="" loading="lazy"><img src="assets/img/k04.png" alt="" loading="lazy"><img src="assets/img/k05.png" alt="" loading="lazy"><img src="assets/img/k06.png" alt="" loading="lazy"><img src="assets/img/k07.png" alt="" loading="lazy"><img src="assets/img/k08.png" alt="" loading="lazy"><img src="assets/img/k09.png" alt="" loading="lazy"><img src="assets/img/k10.png" alt="" loading="lazy"><img src="assets/img/k11.png" alt="" loading="lazy"><img src="assets/img/k12.png" alt="" loading="lazy"><img src="assets/img/k13.png" alt="" loading="lazy"><img src="assets/img/k14.png" alt="" loading="lazy"><img src="assets/img/k15.png" alt="" loading="lazy"></div></div></section>
+
+<section id="features"><h2>Everything one click away</h2><p class="sub">Build pages of 15 buttons for the things you do all day. Pages follow you: open Outlook or Spotify and the right controls appear on their own.</p>
+<div class="cards">
+<div class="card"><div class="i">🚀</div><h3>Launch anything</h3><p>Apps, files, folders and websites, with fallbacks so a button opens the installed app or the web version.</p></div>
+<div class="card"><div class="i">⌨️</div><h3>Hotkeys &amp; macros</h3><p>Show desktop, snip, volume, media keys, mic mute, lock PC. Any shortcut on a single button.</p></div>
+<div class="card"><div class="i">✉️</div><h3>Text templates</h3><p>Paste ready-made emails and AI prompts straight into what you're writing, with formatting intact.</p></div>
+<div class="card"><div class="i">🪄</div><h3>Context pages</h3><p>Outlook and Spotify get their own pages that appear automatically and disappear when you switch away.</p></div>
+<div class="card"><div class="i">⏱️</div><h3>Focus timer</h3><p>Start a 25-minute focus block from a button. Gentle, quiet, done.</p></div>
+<div class="card"><div class="i">🏠</div><h3>Smart-home ready</h3><p>Optional Home Assistant buttons for lights, scenes and locks, with confirm prompts on the risky ones.</p></div>
+</div></section>
+
+<section><h2>Make it yours, take it anywhere</h2><p class="sub">Change buttons, icons and templates, then use <b>Export settings</b> to save everything to one file. <b>Import settings</b> loads it on any PC, backing up what was there first. Moving computers takes seconds.</p></section>
+
+<section id="setup"><h2>Set up in a minute</h2><p class="sub">No installer, no sign-in.</p>
+<div class="steps">
+<div class="step"><h3>Download</h3><p>Grab <code>Deck.zip</code> and extract <code>deck.exe</code> anywhere, like <code>Documents\Deck</code>.</p></div>
+<div class="step"><h3>Run it</h3><p>Double-click. A tray icon appears and the deck opens in its own window. If Windows warns about an unsigned app, choose <b>More info → Run anyway</b>.</p></div>
+<div class="step"><h3>Make it yours</h3><p>Edit keys from the dashboard, tick <b>Start with Windows</b> in the tray menu, and you're set.</p></div>
+</div></section>
+
+<section><div class="cta"><h2>Your shortcuts, one click away.</h2><p>Free for Windows 10 and 11. Runs locally, no account, no tracking.</p>
+<a class="btn" href="assets/Deck.zip" download>⬇ Download Deck</a><div class="note">deck.exe · about 4 MB zipped · v0.3.0</div></div></section>
+<footer>Deck · © 2026 LAZLAB Creations</footer>
+</body></html>
