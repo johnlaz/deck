@@ -20,6 +20,8 @@
 - **Raised glass keys:** keys have a glossy, raised look with hover glow and a press-down effect.
 - **Drag to reorder:** in edit mode, drag keys to rearrange them.
 - **Built-in editor:** gear menu → Edit keys. Change any button's label, icon (auto, upload or built-in) and action.
+- **Phone / tablet dashboard:** show the deck on a spare Android phone or tablet over your Wi-Fi (QR pairing, portrait or landscape, vibrate on press). Off by default.
+- **Backups & page packs:** automatic daily backups with restore, and export/import of individual pages.
 - **Export / Import:** save your whole setup (layout, icons, templates) to one file and load it on any PC.
 
 ## Install
