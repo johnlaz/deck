@@ -15,6 +15,7 @@
 - **Focus timer:** one-button 25-minute blocks.
 - **Home Assistant:** optional light, scene and lock buttons with confirmations.
 - **Compact mode and slim bar:** a slimmer header, or shrink to a thin strip and pop back to normal size.
+- **Three window sizes:** Large, Medium or Small from the settings menu; the window and keys scale together.
 - **Raised glass keys:** keys have a glossy, raised look with hover glow and a press-down effect.
 - **Drag to reorder:** in edit mode, drag keys to rearrange them.
 - **Built-in editor:** gear menu → Edit keys. Change any button's label, icon (auto, upload or built-in) and action.
