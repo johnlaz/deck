@@ -11,10 +11,11 @@
 - **Launch anything:** apps, files, folders and sites, with app-or-web fallbacks.
 - **Hotkeys:** show desktop, snip, media and volume keys, mic mute, lock PC.
 - **Templates:** paste ready-made emails and prompts, formatting intact.
-- **Context pages:** Outlook and Spotify pages appear automatically when those apps are in front.
+- **Context pages:** tool pages appear automatically when Outlook, Spotify, Edge/Chrome, PowerPoint, VS Code, Teams, Zoom, File Explorer, Windows Terminal or VLC is in front.
 - **Focus timer:** one-button 25-minute blocks.
 - **Home Assistant:** optional light, scene and lock buttons with confirmations.
-- **Compact mode:** slim header for a smaller footprint.
+- **Compact mode and slim bar:** a slimmer header, or shrink to a thin strip and pop back to normal size.
+- **Drag to reorder:** in edit mode, drag keys to rearrange them.
 - **Built-in editor:** gear menu → Edit keys. Change any button's label, icon (auto, upload or built-in) and action.
 - **Export / Import:** save your whole setup (layout, icons, templates) to one file and load it on any PC.
 
