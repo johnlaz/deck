@@ -13,6 +13,7 @@
 - **Templates:** paste ready-made emails and prompts, formatting intact.
 - **Context pages:** tool pages appear automatically when Outlook, Spotify, Edge/Chrome, PowerPoint, VS Code, Teams, Zoom, File Explorer, Windows Terminal or VLC is in front.
 - **Focus timer:** one-button 25-minute blocks.
+- **Settings screen:** gear menu → Settings. Choose Chrome, Edge or any browser for the Deck window and website keys, set window behavior, change auto-switch rules, and enter Home Assistant details, with input checked before it is saved.
 - **Home Assistant:** optional light, scene and lock buttons with confirmations.
 - **Compact mode and slim bar:** a slimmer header, or shrink to a thin strip and pop back to normal size.
 - **Three window sizes:** Large, Medium or Small from the settings menu; the window and keys scale together.
